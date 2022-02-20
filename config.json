@@ -1,0 +1,13 @@
+{
+  "connectionStrings": {
+    "DutchContextDb": "Data Source=MAHMOUD-LAP\\SQLEXPRESS;Database=DutchTreat;Trusted_Connection=False; User Id=BookstoreDbUSer; Password=123456789 ;MultipleActiveResultSets=true"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft":  "Warning"
+    }
+  
+  }
+
+  }
