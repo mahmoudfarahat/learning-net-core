@@ -9,6 +9,13 @@ namespace DutchTreat.ViewModels
         public int Quantity { get; set; }
         [Required]
         public decimal UnitPrice { get; set; }
-  
+        [Required]
+        public int ProductId { get; set; }
+        public string ProductCategory { get; set; }
+        public string ProductSize { get; set; }
+        public decimal ProductPrice { get; set; }
+        public string ProductTitle { get; set; }
+       
+
     }
 }
