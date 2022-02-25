@@ -17,7 +17,7 @@ namespace DutchTreat
     {
         public static void Main(string[] args)
         {
-            var host = CreateHostBuilder(args);
+            var host = BuildWebHost(args);
             if ( args.Length == 1 && args[0].ToLower() =="/seed")
                     {
                 RunSeeding(host);
@@ -36,23 +36,22 @@ namespace DutchTreat
             using (var scope = scopeFactory.CreateScope())
             {
                 var seeder = scope.ServiceProvider.GetService<DutchSeeder>();
-                seeder.Seed();
+                seeder.SeedAsync().Wait();
             }
            
         }
 
-        public static IWebHost CreateHostBuilder(string[] args) =>
+        public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration(AddConfiguration)
+            .ConfigureAppConfiguration(SetupConfiguration)
             .UseStartup<Startup>()
             .Build();
 
-        private static void AddConfiguration(WebHostBuilderContext ctx, IConfigurationBuilder bldr)
+        private static void SetupConfiguration(WebHostBuilderContext ctx, IConfigurationBuilder bldr)
         {
             bldr.Sources.Clear();
 
-            bldr.SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("config.json")
+            bldr.AddJsonFile("config.json" , false , true)
                 .AddEnvironmentVariables();
             
         }
