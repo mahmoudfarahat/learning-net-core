@@ -10,6 +10,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Remove="client\src\app\pages\loginPage.component.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="client\src\app\pages\loginPage.component.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.0" />

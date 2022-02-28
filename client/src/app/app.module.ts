@@ -5,17 +5,34 @@ import { AppComponent } from './app.component';
 import { Store } from './services/store.service';
 import ProductListView from './views/productListView.component';
 import { HttpClientModule } from "@angular/common/http";
+import { CartView } from './views/cartView.component';
+import { Checkout } from './pages/checkout.component';
+import { shopPage } from './pages/shopPage.component';
+import router from './router';
+import { LoginPage } from './pages/loginPage.component';
+import { authActivator } from './services/authActivator.service';
+import { FormsModule } from '@angular/forms';
+ 
 @NgModule({
   declarations: [
         AppComponent,
-        ProductListView
+        ProductListView,
+        CartView,
+        Checkout,
+        shopPage,
+        LoginPage
+      
   ],
   imports: [
       BrowserModule,
-      HttpClientModule
+      HttpClientModule,
+      router,
+      FormsModule
+      
   ],
     providers: [
-        Store
+        Store,
+        authActivator
     ],
   bootstrap: [AppComponent]
 })
